@@ -18,6 +18,3 @@ Ctrl-n - spawn a new shell
 Ctrl-f - zoom current shell
 Ctrl-w - destroy current shell
 Ctrl-q - quit ctm
-  
-  
-To gain focus on a shell, just click on it.
