@@ -6,10 +6,6 @@ class Menu {
 
     constructor(screenManager) {
         this.screenManager = screenManager;
-        this.build();
-    }
-
-    build() {
         this.bar = blessed.listbar({
             parent: this.screenManager.getScreen(),
             bottom: 0,
@@ -54,11 +50,7 @@ class Menu {
                 'destroy': {
                     keys: ['C-w'],
                     callback: () => {
-                        if (this.screenManager.getCurrentTerminal()) {
-                            this.screenManager.getCurrentTerminal().destroy();
-                            this.screenManager.setCurrentTerminal(null);
-                            this.screenManager.getScreen().render();
-                        }
+                        this.screenManager.closeCurrentTerminal();
                     }
                 },
                 'quit': {

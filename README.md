@@ -5,7 +5,7 @@ Install
 -------
 npm install
 
-If it doesn't exist, create a directory "log" in the project root.
+Create a directory "logs" in the project root.
 
 Run
 ---
@@ -18,3 +18,6 @@ Ctrl-n - spawn a new shell
 Ctrl-f - zoom current shell
 Ctrl-w - destroy current shell
 Ctrl-q - quit ctm
+  
+  
+To gain focus on a shell, just click on it.
