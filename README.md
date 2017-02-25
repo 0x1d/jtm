@@ -1,4 +1,4 @@
-# ctm
+# jtm
 js terminal multiplexer.
 
 ![alt tag](http://i.imgur.com/6UwuU8O.png)
@@ -11,7 +11,7 @@ Create a directory "logs" in the project root.
 
 Run
 ---
-npm run ctm
+npm run jtm
 
 Shortcuts
 ---------
