@@ -9,9 +9,9 @@ class LayoutManager {
         this.screen = screenManager.getScreen();
         this.mainSection = blessed.box({
             parent: this.screen,
-            left: '30%+1',
+            left: '20%+1',
             top: 0,
-            width: '70%',
+            width: '80%',
             height: '100%-1',
             border: 'line'
         });
@@ -26,7 +26,7 @@ class LayoutManager {
             left: 1,
             top: 0,
             height: '100%-1',
-            width: '30%',
+            width: '20%',
             label: ' {blue-fg}%path{/blue-fg} ',
             cwd: process.env.HOME,
             keys: true,
