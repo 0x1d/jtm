@@ -108,6 +108,7 @@ class ScreenManager {
     focusCurrentTerminal() {
         this.currentTerminal = this.terminals[this.termIndex].panel;
         this.currentTerminal.focus();
+        this.currentTerminal.setFront();
 
     }
     getScreen() {
