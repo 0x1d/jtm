@@ -1,2 +1,10 @@
 # ctm
-cheap terminal multiplexer
+cheap js terminal multiplexer.
+
+Install
+-------
+npm install
+
+Run
+---
+node run
