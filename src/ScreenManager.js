@@ -8,7 +8,7 @@ class ScreenManager {
         this.currentTerminal;
         this.terminals = [];
         this.screen = blessed.screen({
-            dump: __dirname + '/logs/dump.log',
+            dump: process.cwd() + '/logs/dump.log',
             autoPadding: true,
             enableMouse: true,
             warnings: true,
