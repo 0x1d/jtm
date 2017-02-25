@@ -1,5 +1,7 @@
 # ctm
-cheap js terminal multiplexer.
+js terminal multiplexer.
+
+![alt tag](http://i.imgur.com/6UwuU8O.png)
 
 Install
 -------
