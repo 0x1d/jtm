@@ -33,6 +33,7 @@ class Menu {
                     keys: ['C-t'],
                     callback: () => {
                         this.screenManager.getLayoutManager().getFileManager().focus();
+                        this.screenManager.getLayoutManager().getFileManager().refresh();
                     }
                 },
                 'spawn shell': {
