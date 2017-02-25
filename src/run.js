@@ -1,4 +1,4 @@
 "use strict";
 
-const CTM = require('./CTM.js');
-new CTM();
+const JTM = require('./JTM.js');
+new JTM();

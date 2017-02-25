@@ -2,11 +2,11 @@
 
 const ScreenManager = require('./ScreenManager.js');
 
-class CTM {
+class JTM {
     constructor() {
         this.screenManager = new ScreenManager();
         this.screenManager.getLayoutManager().getFileManager().focus();
     }
 }
 
-module.exports = CTM;
+module.exports = JTM;
