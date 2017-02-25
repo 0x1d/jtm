@@ -69,7 +69,24 @@ class Menu {
                 'quit': {
                     keys: ['C-q'],
                     callback: () => {
-                        this.screenManager.getScreen().destroy();
+                        var question = blessed.question({
+                            parent: this.screenManager.getScreen(),
+                            border: 'line',
+                            height: 'shrink',
+                            width: 'half',
+                            top: 'center',
+                            left: 'center',
+                            label: 'Quit?',
+                            tags: true,
+                            keys: true,
+                            vi: true
+                        });
+                        question.ask('Really want to quit?', (err, value) => {
+                            if (value) {
+                                this.screenManager.getScreen().destroy();
+                            }
+                            this.screenManager.getScreen().render();
+                        });
                     }
                 }
             }
