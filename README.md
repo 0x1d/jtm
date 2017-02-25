@@ -14,7 +14,7 @@ npm run ctm
 Shortcuts
 ---------
 Ctrl-t - focus file manager
-Ctrl-n - spawn a new shell
+Ctrl-n - spawn a new shelle
 Ctrl-f - zoom current shell
 Ctrl-w - destroy current shell
 Ctrl-q - quit ctm

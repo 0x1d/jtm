@@ -40,8 +40,8 @@ class ScreenManager {
         let terminal = blessed.terminal({
             parent: this.layoutManager.getMainSection(),
             scrollable: true,
-            left: this.terminals.length,
-            top: this.terminals.length,
+            left: this.terminals.length * 4,
+            top: this.terminals.length * 4,
             width: '50%',
             height: '50%',
             padding: 0,
