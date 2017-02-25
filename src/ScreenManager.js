@@ -27,14 +27,7 @@ class ScreenManager {
         }
     }
     commands() {
-        return {
-            'C-x': () => {
-                return this.nextTerminal();
-            },
-            'C-y': () => {
-                return this.lastTerminal();
-            }
-        }
+        return {}
     }
     spawnTerminal(label, cmd) {
         let terminal = blessed.terminal({
@@ -106,10 +99,11 @@ class ScreenManager {
         this.focusCurrentTerminal();
     }
     focusCurrentTerminal() {
-        this.currentTerminal = this.terminals[this.termIndex].panel;
-        this.currentTerminal.focus();
-        this.currentTerminal.setFront();
-
+        if (this.terminals[this.termIndex]) {
+            this.currentTerminal = this.terminals[this.termIndex].panel;
+            this.currentTerminal.focus();
+            this.currentTerminal.setFront();
+        }
     }
     getScreen() {
         return this.screen;

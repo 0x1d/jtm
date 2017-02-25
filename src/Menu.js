@@ -41,6 +41,18 @@ class Menu {
                         this.screenManager.spawnTerminal('~');
                     }
                 },
+                'last shell': {
+                    keys: ['C-y'],
+                    callback: () => {
+                        this.screenManager.lastTerminal();
+                    }
+                },
+                'next shell': {
+                    keys: ['C-x'],
+                    callback: () => {
+                        this.screenManager.nextTerminal();
+                    }
+                },
                 'zoom': {
                     keys: ['C-f'],
                     callback: () => {
