@@ -1,7 +1,7 @@
 # jtm
 js terminal multiplexer.
 
-![alt tag](http://i.imgur.com/6UwuU8O.png)
+![alt tag](http://i.imgur.com/mEqR8u8.png)
 
 Install
 -------
