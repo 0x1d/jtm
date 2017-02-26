@@ -105,7 +105,7 @@ class ScreenManager {
         if (terminal) {
             terminal.top = !terminal.isZoomed ? 0 : 'center';
             terminal.left = !terminal.isZoomed ? 0 : 'center';
-            terminal.height = !terminal.isZoomed ? '100%-2' : '50%';
+            terminal.height = !terminal.isZoomed ? '100%-5' : '50%';
             terminal.width = !terminal.isZoomed ? '100%-2' : '50%';
             terminal.isZoomed = !terminal.isZoomed;
             terminal.focus();
