@@ -1,7 +1,7 @@
 # jtm
-js terminal multiplexer.
+js terminal multiplexer toy project.
 
-![alt tag](http://i.imgur.com/6UwuU8O.png)
+![alt tag](http://i.imgur.com/mEqR8u8.png)
 
 Install
 -------
