@@ -49,23 +49,51 @@ class ScreenManager {
         terminal.on('element click', (el, mouse) => {
             if (el === terminal) {
                 this.currentTerminal = el;
+                this.termIndex = el.termIndex;
+                this.focusCurrentTerminal();
             }
         });
-        this.screen.render();
+        terminal.termIndex = this.terminals.length;
+
+        let taskItem = blessed.box({
+            parent: this.layoutManager.getMainSection(),
+            bottom: 0,
+            left: '20' * this.terminals.length,
+            width: 20,
+            height: 3,
+            content: label,
+            tags: true,
+            border: {
+                type: 'line'
+            }
+        });
+        var _this = this;
+        taskItem.on('click', function(mouse) {
+            _this.termIndex = this.taskIndex;
+            if (_this.terminals[_this.termIndex].panel.hidden) {
+                _this.toggletCurrentTerminal();
+            }
+            _this.focusCurrentTerminal();
+        });
+        taskItem.taskIndex = this.terminals.length;
+
         this.terminals.push({
+            index: this.terminals.length - 1,
             name: label,
-            panel: terminal
+            panel: terminal,
+            taskItem: taskItem
         });
         this.termIndex++;
         this.currentTerminal = terminal;
         if (cmd) {
             terminal.pty.write(cmd);
         }
-        terminal.focus();
+        this.focusCurrentTerminal();
     }
     closeCurrentTerminal() {
         if (this.terminals[this.getCurrentTerminalIndex()]) {
             this.getCurrentTerminal().destroy();
+            this.getTerminals()[this.termIndex].taskItem.destroy();
             this.getTerminals().splice(this.getCurrentTerminalIndex(), 1);
             if (this.terminals[this.getCurrentTerminalIndex()]) {
                 this.nextTerminal()
@@ -99,11 +127,39 @@ class ScreenManager {
         this.focusCurrentTerminal();
     }
     focusCurrentTerminal() {
-        if (this.terminals[this.termIndex]) {
-            this.currentTerminal = this.terminals[this.termIndex].panel;
+        this.focusTerminal(this.termIndex);
+    }
+    focusTerminal(index) {
+        if (this.terminals[index]) {
+            this.currentTerminal = this.terminals[index].panel;
             this.currentTerminal.focus();
             this.currentTerminal.setFront();
+            this.highlightTask();
+            this.screen.render()
         }
+    }
+    toggletCurrentTerminal() {
+        this.getCurrentTerminal().toggle();
+        this.terminals[this.termIndex].taskItem.style = {
+            border: {
+                type: 'line',
+                fg: this.getCurrentTerminal().hidden ? 'blue' : 'red'
+            }
+        };
+    }
+    highlightTask() {
+        this.terminals.forEach(function(element) {
+            if (!element.panel.hidden) {
+                element.taskItem.style = { border: { type: 'line', fg: 'white' } };
+            }
+        }, this);
+        this.terminals[this.termIndex].taskItem.style = {
+            border: {
+                type: 'line',
+                fg: !this.terminals[this.termIndex].panel.hidden ?
+                    'red' : this.terminals[this.termIndex].taskItem.style.border.fg
+            }
+        };
     }
     getScreen() {
         return this.screen;

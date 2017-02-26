@@ -60,6 +60,12 @@ class Menu {
                         this.screenManager.zoomTerminal(this.screenManager.getCurrentTerminal());
                     }
                 },
+                'minimize': {
+                    keys: ['C-v'],
+                    callback: () => {
+                        this.screenManager.toggletCurrentTerminal();
+                    }
+                },
                 'destroy': {
                     keys: ['C-w'],
                     callback: () => {
