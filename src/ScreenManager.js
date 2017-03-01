@@ -46,10 +46,12 @@ class ScreenManager {
                 ch: ' '
             }
         });
+        //this.zoomTerminal(terminal);
         terminal.on('element click', (el, mouse) => {
             if (el === terminal) {
                 this.currentTerminal = el;
                 this.termIndex = el.termIndex;
+                //console.log(this.termIndex);
                 this.focusCurrentTerminal();
             }
         });
@@ -94,6 +96,7 @@ class ScreenManager {
         if (this.terminals[this.getCurrentTerminalIndex()]) {
             this.getCurrentTerminal().destroy();
             this.getTerminals()[this.termIndex].taskItem.destroy();
+            //delete this.getTerminals()[this.getCurrentTerminalIndex()];
             this.getTerminals().splice(this.getCurrentTerminalIndex(), 1);
             if (this.terminals[this.getCurrentTerminalIndex()]) {
                 this.nextTerminal()
